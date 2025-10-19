@@ -1,25 +1,12 @@
 {
-  "name": "ego-consciousness-uploader",
+  "name": "ego-text-input",
   "version": "1.0.0",
-  "description": "Create your digital consciousness clone",
-  "type": "module",
+  "description": "Simple text input with beautiful themes",
   "scripts": {
-    "dev": "node server.js",
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.0.4",
-    "express": "^4.18.2",
-    "express-fileupload": "^1.4.3",
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1"
-  },
-  "optionalDependencies": {
-    "@supabase/supabase-js": "^2.39.0",
-    "openai": "^4.24.1",
-    "@anthropic-ai/sdk": "^0.20.0"
+    "start": "npx http-server frontend -p 3000 -o",
+    "dev": "npx http-server frontend -p 3000 -o"
   },
   "devDependencies": {
-    "nodemon": "^3.0.2"
+    "http-server": "^14.1.1"
   }
 }

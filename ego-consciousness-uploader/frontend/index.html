@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ego - Consciousness Uploader</title>
+    <title>Dictionary - AI Assistant</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,68 +12,19 @@
     <link rel="preload" href="fonts/cy-grotesk-key-2.ttf" as="font" type="font/ttf" crossorigin>
   </head>
   <body>
-    <h1>Ego</h1>
-    <!-- <p class="subtext">upload yourself.</p> -->
-    <div id="app">
-      <!-- JAKE/ZHENGFENG: Add your UI here -->
+    <!-- Initial centered layout -->
+    <div id="initial-layout" class="layout">
+      <h1>dictionary</h1>
+      <div id="app">
 
-        <!-- Stage 1: Name Input -->
-        <div id="name-input-stage" class="stage active">
-            <input type="text" id="name-input" placeholder="Your full name." />
+          <div class="glass-surface__content">
+            <input type="text" id="text-input" placeholder="How can I help you today?" />
         </div>
-        <p class="subtext">upload yourself.</p>
-
-
-        <!-- Stage 2: Camera Capture + Voice Recording -->
-        <div id="camera-capture-stage" class="stage hidden">
-            <h2 id="capture-title">Step 1: Take 4 Pictures</h2>
-            <div id="camera-container">
-                <video id="camera-feed" autoplay muted></video>
-                <canvas id="camera-canvas" style="display: none;"></canvas>
-            </div>
-            <div id="camera-instructions">
-                <p id="photo-instruction">Picture 1 of 4: Look at the camera with a neutral expression</p>
-                <div id="captured-photos">
-                    <div class="photo-slot" id="photo-slot-1">1</div>
-                    <div class="photo-slot" id="photo-slot-2">2</div>
-                    <div class="photo-slot" id="photo-slot-3">3</div>
-                    <div class="photo-slot" id="photo-slot-4">4</div>
-                </div>
-            </div>
-            <div id="camera-controls">
-                <button id="capture-photo-btn">Capture Photo</button>
-            </div>
-
-            <!-- Voice Recording Section (shown after photos) -->
-            <div id="voice-section" style="display: none;">
-                <h2>Step 2: Answer the Questions</h2>
-                <div id="question-display"></div>
-                <button id="record-btn">Start Recording</button>
-                <button id="stop-btn" disabled>Stop Recording</button>
-                <div id="timer">0:00</div>
-                <div id="recording-status"></div>
-            </div>
-        </div>
-
-        <!-- Stage 3: Processing -->
-        <div id="processing-stage" class="stage hidden">
-            <h2>Creating Your Ego...</h2>
-            <div id="loading-message">Processing...</div>
-            <div class="spinner"></div>
-        </div>
-
-        <!-- Stage 4: Chat -->
-        <div id="chat-stage" class="stage hidden">
-            <h2>Chat with Your Ego</h2>
-            <div id="chat-messages"></div>
-            <div id="chat-input-container">
-                <input type="text" id="chat-input" placeholder="Type a message..." />
-                <button id="send-btn">Send</button>
-            </div>
-            <audio id="audio-player" controls style="display: none;"></audio>
-        </div>
+        <p class="subtext">ask anything.</p>
+      </div>
     </div>
 
-    <script type="module" src="app.js"></script>
-</body>
+    <!-- Chat layout (hidden initially) -->
+    <div id="chat-layout" class="layout hidden">
+  </body>
 </html>
