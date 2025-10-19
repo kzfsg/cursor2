@@ -1,15 +1,8 @@
-/* JAKE/ZHENGFENG: Add your styles here */
+/* Dictionary - Clean Text Input Styles */
 
-@font-face {
-  font-family: 'CY Grotesk Key 2';
-  src: url('fonts/cy-grotesk-key-2.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+
 
 :root {
-  /* Tailwind-style variable: use with var(--font-instrument-serif) */
   --font-instrument-serif: 'Instrument Serif';
 }
 
@@ -21,9 +14,7 @@
 
 body {
   font-family: var(--font-instrument-serif), serif;
-  background:
-    
-    url('images/background.jpg') center/cover no-repeat fixed;
+  background: url('images/background.jpg') center/cover no-repeat fixed;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -55,7 +46,7 @@ body::after {
   width: 90%;
 }
 
-/* Glass bubble wrapper (inspired by reactbits GlassSurface fallback) */
+/* Glass bubble wrapper */
 .glass-surface {
   position: relative;
   display: block;
@@ -111,26 +102,13 @@ body::after {
   }
 }
 
-.stage {
-  display: block;
-}
-
-.stage.hidden {
-  display: none;
-}
-
-/* Animate stage entry */
-.stage.active {
-  animation: fadeUp 300ms ease-out both;
-}
-
 h1 {
   color: #ffffff;
   margin-bottom: 0.1rem;
   text-align: center;
   font-family: var(--font-instrument-serif), serif;
   font-style: italic;
-  font-size: 1rem; /* ~text-5xl */
+  font-size: 7rem;
   font-weight: 600;
   text-shadow:
     0 8px 32px rgba(31, 38, 135, 0.2),
@@ -138,21 +116,6 @@ h1 {
   animation: fadeUp 800ms ease-out both, egoIdle 10s ease-in-out infinite 1s;
   will-change: transform, text-shadow;
   transform-origin: center bottom;
-}
-
-/* Responsive sizes - keeping font small */
-@media (min-width: 640px) {
-  h1 { font-size: 1.2rem; } /* slightly larger on medium screens */
-}
-
-@media (min-width: 1024px) {
-  h1 { font-size: 1.5rem; } /* slightly larger on large screens */
-}
-
-h2 {
-  color: #667eea;
-  margin-bottom: 1.5rem;
-  text-align: center;
 }
 
 .subtext {
@@ -172,6 +135,8 @@ input[type="text"] {
   border: none;
   border-radius: 16px;
   font-size: 1.1rem;
+  font-family: var(--font-instrument-serif), serif;
+  font-weight: 400;
   background: transparent;
   color: #333;
   outline: none;
@@ -180,7 +145,6 @@ input[type="text"] {
 
 input[type="text"]::placeholder {
   color: rgba(51, 51, 51, 0.6);
-  font-style: italic;
 }
 
 /* Glass text input styling */
@@ -211,9 +175,7 @@ input[type="text"]::placeholder {
     inset 0 -1px 0 0 rgba(255, 255, 255, 0.25);
 }
 
-/* Removed button and other complex UI styles - keeping only text input styles */
-
-/* Additional animation keyframes */
+/* Animation keyframes */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
@@ -224,7 +186,7 @@ input[type="text"]::placeholder {
   to { filter: hue-rotate(20deg) saturate(1.1); }
 }
 
-/* Idle animation for the Ego logo/h1 */
+/* Idle animation for the title */
 @keyframes egoIdle {
   0% {
     transform: translateY(0) scale(1);
@@ -243,284 +205,6 @@ input[type="text"]::placeholder {
     text-shadow:
       0 8px 32px rgba(31, 38, 135, 0.20),
       0 2px 16px rgba(31, 38, 135, 0.10);
-  }
-}
-
-/* Sidebar Styles */
-.sidebar {
-  width: 280px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  border-radius: 0 16px 16px 0;
-  margin: 0;
-  padding: 0;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 1000;
-}
-
-.sidebar-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.menu-icon {
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.logo {
-  font-size: 1.5rem;
-  color: #ff6b35;
-}
-
-.sidebar-content {
-  flex: 1;
-  padding: 1rem 0;
-  overflow-y: auto;
-}
-
-.sidebar-section {
-  margin-bottom: 2rem;
-}
-
-.sidebar-item {
-  display: flex;
-  align-items: center;
-  padding: 0.75rem 1.5rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.sidebar-item:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.sidebar-item.active {
-  background-color: rgba(255, 107, 53, 0.2);
-  color: #ff6b35;
-}
-
-.sidebar-icon {
-  margin-right: 0.75rem;
-  font-size: 1.1rem;
-}
-
-.sidebar-footer {
-  padding: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.user-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-/* Chat Container */
-.chat-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  margin-left: 280px;
-  width: calc(100vw - 280px);
-}
-
-.chat-header {
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.chat-header h2 {
-  margin: 0;
-  color: white;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.chat-messages {
-  flex: 1;
-  padding: 2rem;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.message {
-  max-width: 80%;
-  padding: 1rem 1.5rem;
-  border-radius: 16px;
-  word-wrap: break-word;
-}
-
-.message.user {
-  align-self: flex-end;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-radius: 16px 16px 4px 16px;
-}
-
-.message.assistant {
-  align-self: flex-start;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  border-radius: 16px 16px 16px 4px;
-  backdrop-filter: blur(10px);
-}
-
-/* Chat Input Container */
-.chat-input-container {
-  display: flex;
-  align-items: center;
-  padding: 1rem 1.5rem;
-  margin: 1rem 2rem;
-  border-radius: 16px;
-  gap: 1rem;
-}
-
-.user-avatar-small {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 600;
-  font-size: 0.8rem;
-  flex-shrink: 0;
-}
-
-#chat-input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: white;
-  font-size: 1rem;
-  padding: 0.5rem 0;
-}
-
-#chat-input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.input-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.action-btn {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  transition: background-color 0.2s ease;
-}
-
-.action-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.model-select {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  color: white;
-  padding: 0.5rem;
-  font-size: 0.9rem;
-  cursor: pointer;
-}
-
-.send-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: none;
-  background: #ff6b35;
-  color: white;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  transition: background-color 0.2s ease;
-}
-
-.send-btn:hover {
-  background: #e55a2b;
-}
-
-/* Layout containers */
-.layout {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.layout.hidden {
-  display: none !important;
-}
-
-/* Chat layout */
-#chat-layout {
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 240px;
-  }
-  
-  .chat-container {
-    margin-left: 240px;
-    width: calc(100vw - 240px);
-  }
-  
-  .chat-input-container {
-    margin: 1rem;
-    padding: 0.75rem 1rem;
-  }
-  
-  .chat-messages {
-    padding: 1rem;
   }
 }
 

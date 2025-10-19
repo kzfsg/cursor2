@@ -1,150 +1,49 @@
-// Dictionary AI Assistant Application
-
-let isInChatMode = false;
+// Dictionary - Simple Text Input Application
 
 // Initialize app
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOM loaded, setting up application...');
-  setupInitialLayout();
-  setupChatLayout();
+  console.log('DOM loaded, setting up text input...');
+  setupTextInput();
 });
 
-function setupInitialLayout() {
+function setupTextInput() {
   const textInput = document.getElementById('text-input');
   
   if (textInput) {
+    // Add event listener for text input
+    textInput.addEventListener('input', handleTextInput);
     textInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
-        handleInitialSubmit();
+        handleTextSubmit();
       }
     });
     
-    console.log('Initial text input listener added');
+    console.log('Text input listener added');
   }
 }
 
-function setupChatLayout() {
-  const chatInput = document.getElementById('chat-input');
-  const sendBtn = document.querySelector('.send-btn');
-
-  if (chatInput) {
-    chatInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        handleChatSubmit();
-      }
-    });
-    
-    console.log('Chat input listener added');
-  }
+function handleTextInput(event) {
+  const text = event.target.value;
+  console.log('Text input:', text);
   
-  if (sendBtn) {
-    sendBtn.addEventListener('click', handleChatSubmit);
-    console.log('Send button listener added');
-  }
+  // You can add any real-time processing here
+  // For example, character count, validation, etc.
 }
 
-function handleInitialSubmit() {
+function handleTextSubmit() {
   const textInput = document.getElementById('text-input');
   const text = textInput.value.trim();
   
   if (text) {
-    console.log('Initial text submitted:', text);
+    console.log('Text submitted:', text);
     
-    // Switch to chat layout
-    switchToChatLayout();
+    // You can add processing logic here
+    // For example, save to localStorage, send to an API, etc.
     
-    // Add the initial message to chat
-    addMessageToChat('user', text);
+    // For now, just show an alert
+    alert(`You entered: "${text}"`);
     
-    // Simulate AI response
-    setTimeout(() => {
-      addMessageToChat('assistant', `I understand you're asking about "${text}". How can I help you further?`);
-    }, 1000);
+    // Clear the input
+    textInput.value = '';
   }
 }
-
-function handleChatSubmit() {
-  const chatInput = document.getElementById('chat-input');
-  const text = chatInput.value.trim();
-  
-  if (text) {
-    console.log('Chat message submitted:', text);
-    
-    // Add user message to chat
-    addMessageToChat('user', text);
-    
-    // Clear input
-    chatInput.value = '';
-    
-    // Simulate AI response
-    setTimeout(() => {
-      const responses = [
-        "That's an interesting question! Let me think about that...",
-        "I can help you with that. Here's what I think:",
-        "Great question! Based on what you've told me:",
-        "I understand. Let me provide some insights:",
-        "That's a good point. Here's my perspective:"
-      ];
-      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-      addMessageToChat('assistant', randomResponse);
-    }, 1500);
-  }
-}
-
-function switchToChatLayout() {
-  const initialLayout = document.getElementById('initial-layout');
-  const chatLayout = document.getElementById('chat-layout');
-  
-  if (initialLayout && chatLayout) {
-    initialLayout.classList.add('hidden');
-    chatLayout.classList.remove('hidden');
-    isInChatMode = true;
-    
-    // Focus on chat input
-    setTimeout(() => {
-      const chatInput = document.getElementById('chat-input');
-      if (chatInput) {
-        chatInput.focus();
-      }
-    }, 100);
-  }
-}
-
-function addMessageToChat(role, content) {
-  const messagesContainer = document.getElementById('chat-messages');
-  
-  if (messagesContainer) {
-  const messageDiv = document.createElement('div');
-  messageDiv.className = `message ${role}`;
-    messageDiv.textContent = content;
-
-  messagesContainer.appendChild(messageDiv);
-    
-    // Scroll to bottom
-  messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    
-    // Add animation
-    messageDiv.style.opacity = '0';
-    messageDiv.style.transform = 'translateY(20px)';
-    
-    setTimeout(() => {
-      messageDiv.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-      messageDiv.style.opacity = '1';
-      messageDiv.style.transform = 'translateY(0)';
-    }, 10);
-  }
-}
-
-// Handle sidebar interactions
-document.addEventListener('DOMContentLoaded', () => {
-  const sidebarItems = document.querySelectorAll('.sidebar-item');
-  
-  sidebarItems.forEach(item => {
-    item.addEventListener('click', () => {
-      // Remove active class from all items
-      sidebarItems.forEach(i => i.classList.remove('active'));
-      // Add active class to clicked item
-      item.classList.add('active');
-    });
-  });
-});
