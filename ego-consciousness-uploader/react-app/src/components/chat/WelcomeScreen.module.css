@@ -1,0 +1,57 @@
+/* Welcome Screen Styles */
+
+.welcomeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: var(--space-xl);
+}
+
+.title {
+  color: var(--color-text-light);
+  margin-bottom: 0.1rem;
+  text-align: center;
+  font-family: var(--font-primary), serif;
+  font-style: italic;
+  font-size: 7rem;
+  font-weight: 600;
+  text-shadow: var(--shadow-text);
+  animation: fadeUp 800ms ease-out both, egoIdle 10s ease-in-out infinite 1s;
+  will-change: transform, text-shadow;
+  transform-origin: center bottom;
+}
+
+.subtext {
+  color: var(--color-text-light);
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  animation: fadeUp 900ms ease-out both;
+}
+
+.inputContainer {
+  width: 100%;
+  max-width: 600px;
+  margin-top: var(--space-md);
+}
+
+/* Responsive font sizes */
+@media (max-width: 768px) {
+  .title {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .subtext {
+    font-size: 1rem;
+  }
+}

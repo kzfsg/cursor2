@@ -1,0 +1,69 @@
+/* CSS Custom Properties / Design Tokens */
+
+:root {
+  /* Fonts */
+  --font-primary: 'Instrument Serif', serif;
+  --font-instrument-serif: 'Instrument Serif';
+
+  /* Colors - Glass Morphism */
+  --color-glass-bg: rgba(255, 255, 255, 0.25);
+  --color-glass-bg-hover: rgba(255, 255, 255, 0.3);
+  --color-glass-bg-dark: rgba(255, 255, 255, 0.1);
+  --color-glass-border: rgba(255, 255, 255, 0.3);
+  --color-glass-border-hover: rgba(255, 255, 255, 0.6);
+
+  /* Text Colors */
+  --color-text-primary: #333;
+  --color-text-light: #ffffff;
+  --color-text-placeholder: rgba(51, 51, 51, 0.6);
+
+  /* Glass Effects */
+  --glass-blur: blur(12px);
+  --glass-saturate: saturate(1.8);
+  --glass-brightness: brightness(1.1);
+  --glass-brightness-dark: brightness(1.2);
+
+  /* Shadows */
+  --shadow-glass:
+    0 8px 32px 0 rgba(31, 38, 135, 0.2),
+    0 2px 16px 0 rgba(31, 38, 135, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 0 rgba(255, 255, 255, 0.2);
+
+  --shadow-glass-hover:
+    0 12px 36px 0 rgba(31, 38, 135, 0.28),
+    0 4px 20px 0 rgba(31, 38, 135, 0.16),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 0 0 rgba(255, 255, 255, 0.25);
+
+  --shadow-text:
+    0 8px 32px rgba(31, 38, 135, 0.2),
+    0 2px 16px rgba(31, 38, 135, 0.1);
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  /* Transitions */
+  --transition-fast: 120ms ease;
+  --transition-smooth: 180ms ease;
+  --transition-medium: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* Z-Index Layers */
+  --z-base: 1;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-modal: 100;
+  --z-toast: 200;
+}
