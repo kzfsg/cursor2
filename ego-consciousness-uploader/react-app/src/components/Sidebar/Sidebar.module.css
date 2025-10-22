@@ -141,6 +141,26 @@
   flex-shrink: 0;
 }
 
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .sidebar {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px) saturate(1.8) brightness(1.2);
+    -webkit-backdrop-filter: blur(12px) saturate(1.8) brightness(1.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .toggleButton {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .canvasLoginButton {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .sidebar {
